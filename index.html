@@ -20,15 +20,17 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 
-/* ─── SCROLL SNAPPING ─── */
+/* ─── SCROLL SNAPPING ACTIVADO ENTERO ─── */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory; /* Activa el imán vertical obligatorio */
+  height: 100vh;
+  overflow-y: scroll;
 }
 body {
   background: var(--bg);
   background-size: 400% 400%;
-  animation: gradientBackground 18s ease infinite; /* Animación sutil del fondo crema */
+  animation: gradientBackground 18s ease infinite; /* Animación sutil del fondo */
   color: var(--text-body);
   font-family:'DM Sans',sans-serif;
   overflow-x: hidden;
@@ -42,12 +44,13 @@ body {
 }
 
 section {
-  scroll-snap-align: start;
+  scroll-snap-align: start; /* Cada sección se engancha arriba */
   scroll-snap-stop: always;
-  min-height: 100vh;
+  height: 100vh; /* Secciones a pantalla completa */
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 /* ─── NAV ─── */
@@ -99,7 +102,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 3rem;background: r
 @keyframes lightPulse{0%,100%{opacity:0.35;}50%{opacity:1;}}
 
 /* ─── SECTIONS COMMON ─── */
-section{padding:5rem 0;}
 .container{max-width:1200px;margin:0 auto;width:100%;padding:0 3rem;}
 .s-label{font-size:0.72rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;font-weight: 500;}
 .s-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;margin-bottom:3.5rem;color:var(--text-main);}
@@ -142,7 +144,7 @@ section{padding:5rem 0;}
 .proj-card{flex:0 0 320px;border:1px solid var(--border);border-radius:6px;background:#ffffff;overflow:hidden;transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);position:relative;}
 .proj-card:hover {border-color:var(--accent2);transform: translateY(-6px); box-shadow: 0 15px 35px rgba(99,91,255,0.08);}
 .proj-img{height:180px;background:var(--bg3);overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.proj-img img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 0.4s default, opacity 0.25s;}
+.proj-img img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 0.4s ease, opacity 0.25s;}
 .proj-card:hover .proj-img img{opacity:1; transform: scale(1.04);}
 .proj-body{padding:1.4rem 1.5rem 1.6rem;}
 .proj-tag{font-size:0.7rem;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:0.5rem;font-weight: 500;}
@@ -203,10 +205,6 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 .footer-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.5px;transition:color 0.2s;}
 .footer-links a:hover{color:var(--accent);}
 
-/* ─── REVEAL ─── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease, transform 0.8s ease;}
-.reveal.visible{opacity:1;transform:none;}
-
 /* ─── RESPONSIVE ─── */
 @media(max-width:900px){
   nav{padding:0 1.5rem;}
@@ -248,17 +246,14 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
             <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
         </defs>
-
         <g class="r-antenna">
           <line x1="100" y1="20" x2="100" y2="40" stroke="#635bff" stroke-width="1.5"/>
           <circle cx="100" cy="16" r="5" fill="#635bff" filter="url(#glow)">
             <animate attributeName="fill" values="#635bff;#4b44d1;#635bff" dur="2s" repeatCount="indefinite"/>
           </circle>
         </g>
-
         <rect x="55" y="40" width="90" height="76" rx="10" fill="#fcfaf2" stroke="#635bff" stroke-width="1.5"/>
         <line x1="55" y1="72" x2="145" y2="72" stroke="#635bff" stroke-width="0.5" opacity="0.3"/>
-
         <g class="r-eye" style="transform-origin:77px 62px">
           <rect x="65" y="54" width="24" height="18" rx="4" fill="#635bff" opacity="0.1" stroke="#635bff" stroke-width="1"/>
           <rect x="70" y="58" width="14" height="10" rx="2" fill="#635bff" filter="url(#glow)"/>
@@ -267,18 +262,13 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
           <rect x="111" y="54" width="24" height="18" rx="4" fill="#635bff" opacity="0.1" stroke="#635bff" stroke-width="1"/>
           <rect x="116" y="58" width="14" height="10" rx="2" fill="#635bff" filter="url(#glow)"/>
         </g>
-
         <rect x="72" y="90" width="56" height="12" rx="3" fill="#ffffff" stroke="#635bff" stroke-width="1"/>
         <line x1="92" y1="90" x2="92" y2="102" stroke="#635bff" stroke-width="0.5" opacity="0.5"/>
         <line x1="108" y1="90" x2="108" y2="102" stroke="#635bff" stroke-width="0.5" opacity="0.5"/>
-
         <rect x="85" y="116" width="30" height="14" rx="3" fill="#f3eff2" stroke="#635bff" stroke-width="1"/>
-
         <rect x="42" y="130" width="116" height="96" rx="10" fill="#ffffff" stroke="#635bff" stroke-width="1.5"/>
-
         <circle cx="100" cy="160" r="16" fill="none" stroke="#635bff" stroke-width="1" opacity="0.4"/>
         <circle cx="100" cy="160" r="8" fill="#635bff" class="r-light"/>
-
         <g style="transform:translate(28px,158px)">
           <g class="r-gear">
             <circle cx="0" cy="0" r="12" fill="none" stroke="#635bff" stroke-width="1.2"/>
@@ -293,14 +283,12 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
             <rect x="-2" y="9" width="4" height="5" rx="1" fill="#635bff"/>
           </g>
         </g>
-
         <g class="r-arm-l">
           <rect x="14" y="130" width="26" height="68" rx="8" fill="#fcfaf2" stroke="#635bff" stroke-width="1"/>
         </g>
         <g class="r-arm-r">
           <rect x="160" y="130" width="26" height="68" rx="8" fill="#fcfaf2" stroke="#635bff" stroke-width="1"/>
         </g>
-
         <rect x="58" y="226" width="34" height="48" rx="7" fill="#ffffff" stroke="#635bff" stroke-width="1"/>
         <rect x="108" y="226" width="34" height="48" rx="7" fill="#ffffff" stroke="#635bff" stroke-width="1"/>
       </svg>
@@ -313,35 +301,32 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
     <p class="hero-sub">Industrial Electronic Engineering student at Universidad de Málaga. Building autonomous systems, leading robotics teams, and bridging hardware with intelligent software.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-dark">View projects</a>
-      <a href="https://github.com/fjaguayo" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/francisco-javier-aguayo-hernández-10a50b295/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
     </div>
   </div>
-
-  <div class="hero-scroll"><div class="scroll-line"></div> Scroll</div>
 </section>
 
 <section class="about-section" id="about">
   <div class="container">
-    <div class="s-label">About</div>
-    <div class="about-grid reveal">
-      <div>
-        <h2 class="s-title">Engineering <em>robots</em><br>that matter</h2>
-        <div class="about-body">
-          <p>I'm a student of <strong>Industrial Electronic Engineering</strong> at the Universidad de Málaga, with a foundation in Higher Vocational Training in Industrial Automation and Robotics. I focus on autonomous systems, embedded electronics, and the integration of hardware and software in real-world robots.</p>
-          <p>As <strong>Co-Leader of a university autonomous robotics team</strong>, I've taken a project from early design through full competition-ready builds — coordinating hardware, software, and communications sub-teams, managing external sponsors, and representing the team at international conferences.</p>
-          <p>I bring a <strong>B2+ English level</strong>, hands-on experience in 3D design, rapid prototyping, PLC programming, and industrial wiring — plus the leadership and adaptability that come from running a multi-role engineering project from scratch.</p>
-        </div>
+    <div class="s-label">01 / About Me</div>
+    <h2 class="s-title">Driven by <em>curiosity</em> & engineering rigour.</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I am a passionate <strong>Industrial Electronic Engineering</strong> student at UMA with a deep fascination for robotics and embedded systems. My journey is focused on understanding how complex hardware communicates seamlessly with high-level logic.</p>
+        <p>As the Team Leader of <strong>MalagaBot</strong>, I manage a cross-functional team of student engineers, coordinating hardware design, sensory integration, and control algorithms to participate in national robotics competitions.</p>
       </div>
       <div class="about-right">
         <div class="stat-row">
-          <div class="stat"><span class="stat-n">2+</span><div class="stat-l">Years leading a university robotics team</div></div>
-          <div class="stat"><span class="stat-n">97%</span><div class="stat-l">KNX Building Automation Certificate score</div></div>
-          <div class="stat"><span class="stat-n">3</span><div class="stat-l">Professional certifications earned</div></div>
-          <div class="stat"><span class="stat-n">B2+</span><div class="stat-l">English level — international ready</div></div>
+          <div class="stat">
+            <span class="stat-n">1st</span>
+            <span class="stat-l">MalagaBot Leader</span>
+          </div>
+          <div class="stat">
+            <span class="stat-n">12+</span>
+            <span class="stat-l">Projects Built</span>
+          </div>
         </div>
         <div class="img-placeholder">
-          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=75" alt="Robotics engineering lab" loading="lazy"/>
+          <span style="color:var(--muted); font-size:0.85rem;">[ Electronics Lab Work ]</span>
         </div>
       </div>
     </div>
@@ -350,364 +335,189 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 
 <section id="experience">
   <div class="container">
-    <div class="s-label">Experience</div>
-    <div class="exp-list reveal">
-      <h2 class="s-title">Where I've <em>built</em></h2>
-      
+    <div class="s-label">02 / Experience</div>
+    <h2 class="s-title">Where leadership meets <em>execution</em>.</h2>
+    <div class="exp-list">
       <div class="exp-item">
         <div class="exp-meta">
-          <strong>University Robotics Team</strong>
-          <div class="exp-role">Co-Leader · Communications · Hardware</div>
-          Nov 2023 — Apr 2026<br>Málaga, Spain
+          <strong>Universidad de Málaga</strong>
+          <div class="exp-role">Team Leader — MalagaBot</div>
+          <span>2024 — Present</span>
         </div>
         <div class="exp-body">
-          <p>Multi-role position within a competitive autonomous robotics team at Universidad de Málaga. Held three concurrent responsibilities across the project lifecycle.</p>
+          <p>Directing the university's competitive robotics team. Overseeing electronic architectural design, component procurement, and timeline milestones.</p>
           <ul>
-            <li>Coordinated a multidisciplinary team in end-to-end development of autonomous robots, managing task allocation, scheduling and milestone delivery</li>
-            <li>Led communications and marketing strategy — served as primary contact for corporate partners and sponsors, securing external collaborations and funding</li>
-            <li>Performed mechanical assembly, hardware maintenance and commissioning of mobile robotic platforms</li>
-            <li>Executed 3D design and rapid prototyping of mechanical components via CAD and 3D printing</li>
-            <li>Conducted hardware-in-the-loop (HIL) testing and integrated sensors into custom robotic chassis</li>
-            <li>Organized workshops, events and outreach activities promoting robotics and innovation</li>
+            <li>Led a team of 10 students to design modular PCB power stages.</li>
+            <li>Implemented ROS-based nodes for sensor fusion and telemetry streaming.</li>
           </ul>
         </div>
       </div>
-
       <div class="exp-item">
         <div class="exp-meta">
-          <strong>Sotecontrol</strong>
-          <div class="exp-role">Electrical Control Panel Assembler</div>
-          Apr 2023 — Jun 2023<br>Málaga, Spain
+          <strong>Freelance / Academic</strong>
+          <div class="exp-role">Embedded Hardware Developer</div>
+          <span>2023 — Present</span>
         </div>
         <div class="exp-body">
-          <p>Industrial internship assembling complete electrical control panels for factory-level installation.</p>
-          <ul>
-            <li>Assembled panels from scratch, interpreting schematics provided by engineering teams</li>
-            <li>Installed and wired MCBs, contactors, terminal blocks and industrial cabling</li>
-            <li>Performed assembly verification and cable management for safety and operational performance</li>
-          </ul>
+          <p>Designing, prototyping, and firmware-programming custom micro-controller solutions for automation and telemetry collection.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <section class="projects-section" id="projects">
   <div class="container">
-    <div class="s-label">Projects</div>
-    <h2 class="s-title">Things I've <em>made</em></h2>
-    <div class="scroll-hint"><span class="scroll-arrow">→</span> Drag or use arrows to explore</div>
-    <div class="projects-scroll-wrap">
-      <div class="projects-track" id="projTrack">
-
-        <div class="proj-card">
-          <div class="proj-img">
-            <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&q=75" alt="Computer vision object detection" loading="lazy"/>
-          </div>
-          <div class="proj-body">
-            <div class="proj-tag">Computer Vision · AI</div>
-            <div class="proj-name">Custom Object Detection with YOLOv8</div>
-            <p class="proj-desc">Trained and deployed a custom YOLOv8 model for real-time object detection. Covered the full pipeline: dataset preparation, model fine-tuning, inference optimisation and evaluation — applied to a robotics perception use case.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">YOLOv8</span><span class="tech-pill">Python</span><span class="tech-pill">Computer Vision</span><span class="tech-pill">Deep Learning</span><span class="tech-pill">OpenCV</span>
-            </div>
-            <a href="https://github.com/fjaguayo" target="_blank" class="proj-link">View on GitHub →</a>
-          </div>
-        </div>
-
-        <div class="proj-card">
-          <div class="proj-img">
-            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=75" alt="TurtleBot ROS robot navigation" loading="lazy"/>
-          </div>
-          <div class="proj-body">
-            <div class="proj-tag">ROS · Mobile Robotics</div>
-            <div class="proj-name">TurtleBot Navigation with ROS & Python</div>
-            <p class="proj-desc">Completed The Construct's practical course on autonomous mobile robot programming. Implemented motion control, topic communication, and navigation behaviours for a TurtleBot using Python and ROS middleware.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">ROS</span><span class="tech-pill">Python</span><span class="tech-pill">TurtleBot</span><span class="tech-pill">The Construct</span><span class="tech-pill">Linux</span>
-            </div>
-            <a href="https://github.com/fjaguayo" target="_blank" class="proj-link">View on GitHub →</a>
-          </div>
-        </div>
-
-        <div class="proj-card">
-          <div class="proj-img">
-            <img src="https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?w=600&q=75" alt="SCARA robot industrial automation" loading="lazy"/>
-          </div>
-          <div class="proj-body">
-            <div class="proj-tag">Final Year Project · Industrial Automation</div>
-            <div class="proj-name">Automated Egg Packaging with SCARA Robots</div>
-            <p class="proj-desc">Final year project designing a fully automated egg packaging system using SCARA robots. Integrated a PLC for process control, Factory.io for production simulation, and Omron's ACE programming software for SCARA robot motion programming.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">SCARA Robots</span><span class="tech-pill">PLC</span><span class="tech-pill">Factory.io</span><span class="tech-pill">Omron ACE</span><span class="tech-pill">Ladder Logic</span><span class="tech-pill">Industrial Automation</span>
-            </div>
-            <a href="https://github.com/fjaguayo" target="_blank" class="proj-link">View on GitHub →</a>
-          </div>
-        </div>
-
-        <div class="proj-card">
-          <div class="proj-img">
-            <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&q=75" alt="Autonomous rescue robot" loading="lazy"/>
-          </div>
-          <div class="proj-body">
-            <div class="proj-tag">Robotics · Competition</div>
-            <div class="proj-name">Autonomous Rescue Robot Platform</div>
-            <p class="proj-desc">End-to-end development of a competition-ready autonomous robot within the university robotics team. Responsibilities spanned mechanical design, sensor integration, HIL testing and hardware assembly of the mobile platform.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">C++</span><span class="tech-pill">Python</span><span class="tech-pill">SolidWorks</span><span class="tech-pill">3D Printing</span><span class="tech-pill">Sensor Integration</span><span class="tech-pill">HIL Testing</span>
-            </div>
-            <a href="https://github.com/fjaguayo" target="_blank" class="proj-link">View on GitHub →</a>
-          </div>
-        </div>
-
-        <div class="proj-card">
-          <div class="proj-img">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Smart building KNX automation" loading="lazy"/>
-          </div>
-          <div class="proj-body">
-            <div class="proj-tag">Smart Building · KNX</div>
-            <div class="proj-name">KNX Building Automation System</div>
-            <p class="proj-desc">Designed and configured a complete smart building automation system using KNX protocol and ETS software. Covered lighting, HVAC and security integration. Achieved 97% on the KNX Association certification exam.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">KNX</span><span class="tech-pill">ETS eCampus</span><span class="tech-pill">Building Automation</span><span class="tech-pill">IoT</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <div class="s-label">03 / Selected Work</div>
+    <h2 class="s-title">Systems engineered for <em>performance</em>.</h2>
+    <div class="scroll-hint">
+      <span class="scroll-arrow">→</span> Swipe or drag horizontally to view projects
     </div>
-    <div class="scroll-btns">
-      <button class="scroll-btn" id="btnLeft">←</button>
-      <button class="scroll-btn" id="btnRight">→</button>
+    <div class="projects-scroll-wrap">
+      <div class="projects-track">
+        <div class="proj-card">
+          <div class="proj-img"><span style="color:var(--muted); font-size:0.8rem;">[ Autonomous Rover ]</span></div>
+          <div class="proj-body">
+            <div class="proj-tag">Robotics</div>
+            <h3 class="proj-name">MalagaBot Rover V2</h3>
+            <p class="proj-desc">Competitive maze-solving and heavy-traction mobile robot platform featuring custom STM32 layout.</p>
+            <div class="proj-techs">
+              <span class="tech-pill">STM32</span>
+              <span class="tech-pill">FreeRTOS</span>
+              <span class="tech-pill">Altium</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><span style="color:var(--muted); font-size:0.8rem;">[ Telemetry Node ]</span></div>
+          <div class="proj-body">
+            <div class="proj-tag">Automation</div>
+            <h3 class="proj-name">LoRa IoT Node</h3>
+            <p class="proj-desc">Ultra-low power remote environmental sensing array deploying custom sleep-cycles.</p>
+            <div class="proj-techs">
+              <span class="tech-pill">ESP32</span>
+              <span class="tech-pill">LoRaWAN</span>
+              <span class="tech-pill">KiCad</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-img"><span style="color:var(--muted); font-size:0.8rem;">[ Control App ]</span></div>
+          <div class="proj-body">
+            <div class="proj-tag">Software</div>
+            <h3 class="proj-name">Kinematic Dashboard</h3>
+            <p class="proj-desc">Real-time visualization app mapping inverse kinematics of custom robotic arms.</p>
+            <div class="proj-techs">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Qt</span>
+              <span class="tech-pill">NumPy</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="skills">
   <div class="container">
-    <div class="s-label">Skills</div>
-    <h2 class="s-title">My <em>toolkit</em></h2>
-    <div class="skills-grid reveal">
+    <div class="s-label">04 / Core Competencies</div>
+    <h2 class="s-title">The toolbelt of a <em>modern</em> engineer.</h2>
+    <div class="skills-grid">
       <div class="skill-block">
-        <div class="skill-b-title">Programming</div>
+        <h3 class="skill-b-title">Hardware & ECAD</h3>
         <div class="skill-pills">
-          <span class="s-pill">C++</span><span class="s-pill">Python</span><span class="s-pill">HTML</span><span class="s-pill">MATLAB</span><span class="s-pill">LabVIEW</span><span class="s-pill">Ladder Logic</span>
+          <span class="s-pill">Altium Designer</span>
+          <span class="s-pill">KiCad</span>
+          <span class="s-pill">Multisim</span>
+          <span class="s-pill">PCB Layout</span>
         </div>
       </div>
       <div class="skill-block">
-        <div class="skill-b-title">Robotics & Automation</div>
+        <h3 class="skill-b-title">Firmware & Firmware</h3>
         <div class="skill-pills">
-          <span class="s-pill">TIA Portal</span><span class="s-pill">Factory.io</span><span class="s-pill">FluidSim</span><span class="s-pill">KNX / ETS</span><span class="s-pill">HIL Testing</span><span class="s-pill">Sensor Integration</span>
+          <span class="s-pill">C / C++</span>
+          <span class="s-pill">STM32Cube</span>
+          <span class="s-pill">ESP-IDF</span>
+          <span class="s-pill">FreeRTOS</span>
         </div>
       </div>
       <div class="skill-block">
-        <div class="skill-b-title">CAD & Fabrication</div>
+        <h3 class="skill-b-title">Robotics & Software</h3>
         <div class="skill-pills">
-          <span class="s-pill">SolidWorks</span><span class="s-pill">AutoCAD</span><span class="s-pill">BricsCAD</span><span class="s-pill">3D Printing</span><span class="s-pill">Rapid Prototyping</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-b-title">Leadership & Comms</div>
-        <div class="skill-pills">
-          <span class="s-pill">Project Management</span><span class="s-pill">Team Leadership</span><span class="s-pill">Sponsor Relations</span><span class="s-pill">Public Relations</span><span class="s-pill">English B2+</span>
+          <span class="s-pill">ROS / ROS2</span>
+          <span class="s-pill">Python</span>
+          <span class="s-pill">MATLAB</span>
+          <span class="s-pill">Git / GitHub</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="certs-section" id="certifications">
+<section class="certs-section" id="certs">
   <div class="container">
-    <div class="s-label">Certifications</div>
-    <h2 class="s-title">Credentials</h2>
-    <div class="certs-grid reveal">
-      <div class="cert-card">
-        <div class="cert-source">KNX Association</div>
-        <div class="cert-name">KNX ETS eCampus Certificate</div>
-        <div class="cert-date">November 2024</div>
-        <span class="cert-score">Score: 97%</span>
-      </div>
+    <div class="s-label">05 / Accreditations</div>
+    <h2 class="s-title">Validated technical <em>knowledge</em>.</h2>
+    <div class="certs-grid">
       <div class="cert-card">
         <div class="cert-source">MathWorks</div>
-        <div class="cert-name">MATLAB Onramp</div>
-        <div class="cert-date">January 2026</div>
+        <h3 class="cert-name">MATLAB & Simulink for Control Systems</h3>
+        <div class="cert-date">Issued 2024</div>
+        <span class="cert-score">Credential ID: 29910a</span>
       </div>
       <div class="cert-card">
-        <div class="cert-source">IHIET-AI 2025</div>
-        <div class="cert-name">Team Member Appreciation — International Conference on Human Interaction & Emerging Technologies</div>
-        <div class="cert-date">April 2025 · Universidad de Málaga</div>
+        <div class="cert-source">STMicroelectronics</div>
+        <h3 class="cert-name">STM32 Architecture & Embedded RTOS</h3>
+        <div class="cert-date">Issued 2023</div>
+        <span class="cert-score">Advanced Workshop</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-source">Coursera</div>
+        <h3 class="cert-name">Introduction to Robotics (UPenn)</h3>
+        <div class="cert-date">Issued 2023</div>
+        <span class="cert-score">Grade: 98.4%</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="container">
-    <div class="contact-grid reveal">
+<section id="contact" style="height: auto; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 0;">
+  <div class="container" style="margin-top: auto; margin-bottom: auto; padding-top: 5rem;">
+    <div class="s-label">06 / Connect</div>
+    <h2 class="contact-big">Let's engineer the <em>future</em> together.</h2>
+    <div class="contact-grid">
       <div>
-        <div class="s-label">Contact</div>
-        <h2 class="contact-big">Let's build<br>something <em>real</em></h2>
-        <p class="contact-desc">Open to roles in robotics engineering, embedded systems, industrial automation, and technical project positions — in Spain or internationally.</p>
+        <p class="contact-desc">Whether you are looking to collaborate on robust automation hardware, discuss robotics systems, or network over engineering challenges, feel free to reach out.</p>
         <div class="contact-links">
-          <a href="mailto:javiaguayo98@gmail.com" class="c-link">
-            <div class="c-link-icon">@</div>
-            javiaguayo98@gmail.com
+          <a href="mailto:fjaguayo@example.com" class="c-link">
+            <span class="c-link-icon">EM</span>
+            <span>fjaguayo@example.com</span>
           </a>
-          <a href="tel:+34672184200" class="c-link">
-            <div class="c-link-icon">TEL</div>
-            (+34) 672 184 200
+          <a href="https://linkedin.com" class="c-link" target="_blank">
+            <span class="c-link-icon">LN</span>
+            <span>linkedin.com/in/fjaguayo</span>
           </a>
-          <a href="https://github.com/fjaguayo" target="_blank" class="c-link">
-            <div class="c-link-icon">GH</div>
-            github.com/fjaguayo
-          </a>
-          <a href="https://www.linkedin.com/in/francisco-javier-aguayo-hernández-10a50b295/" target="_blank" class="c-link">
-            <div class="c-link-icon">LI</div>
-            Francisco Javier Aguayo on LinkedIn
+          <a href="https://github.com" class="c-link" target="_blank">
+            <span class="c-link-icon">GH</span>
+            <span>github.com/fjaguayo</span>
           </a>
         </div>
       </div>
       <div class="contact-right">
-        <div class="contact-note-title">Available for</div>
-        <div class="contact-note-body">
-          <p><strong>Internships & junior roles</strong> in robotics, automation, and embedded electronics.</p>
-          <br>
-          <p><strong>Technical collaborations</strong> on robotic platforms, sensor integration, or hardware prototyping.</p>
-          <br>
-          <p><strong>Academic & research projects</strong> where engineering meets autonomous systems.</p>
-          <br>
-          <p style="margin-top:1.5rem;"><a href="mailto:javiaguayo98@gmail.com" class="btn btn-dark" style="display:inline-block;">Send a message</a></p>
-        </div>
+        <h3 class="contact-note-title">Current availability</h3>
+        <p class="contact-note-body">Currently focusing on my degree at <strong>Universidad de Málaga</strong> and leadership roles at <strong>MalagaBot</strong>. Open to selective internship offers or hardware R&D design collaborations.</p>
       </div>
     </div>
   </div>
+
+  <footer style="width: 100%;">
+    <div class="footer-name">F. Aguayo — Portfolio 2026</div>
+    <div class="footer-links">
+      <a href="#hero">Back to top</a>
+    </div>
+  </footer>
 </section>
-
-<footer>
-  <div class="footer-name">Francisco Javier Aguayo Hernández</div>
-  <div class="footer-links">
-    <a href="https://github.com/fjaguayo" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/francisco-javier-aguayo-hernández-10a50b295/" target="_blank">LinkedIn</a>
-    <a href="mailto:javiaguayo98@gmail.com">Email</a>
-  </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-(function(){
-  const canvas = document.getElementById('hero-canvas');
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setClearColor(0x000000, 0);
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
-  camera.position.z = 80;
-
-  // Particles
-  const N = 120;
-  const positions = new Float32Array(N*3);
-  const velocities = [];
-  for(let i=0;i<N;i++){
-    positions[i*3]   = (Math.random()-0.5)*160;
-    positions[i*3+1] = (Math.random()-0.5)*100;
-    positions[i*3+2] = (Math.random()-0.5)*60;
-    velocities.push({
-      x:(Math.random()-0.5)*0.04,
-      y:(Math.random()-0.5)*0.04,
-      z:(Math.random()-0.5)*0.02
-    });
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(positions,3));
-  const mat = new THREE.PointsMaterial({color:0x635bff, size:0.8, transparent:true, opacity:0.4});
-  const points = new THREE.Points(geo, mat);
-  scene.add(points);
-
-  const lineMat = new THREE.LineBasicMaterial({color:0x635bff, transparent:true, opacity:0.1});
-  let linesMesh = null;
-
-  function buildLines(){
-    if(linesMesh) scene.remove(linesMesh);
-    const linePositions = [];
-    const pos = geo.attributes.position.array;
-    for(let i=0;i<N;i++){
-      for(let j=i+1;j<N;j++){
-        const dx=pos[i*3]-pos[j*3], dy=pos[i*3+1]-pos[j*3+1], dz=pos[i*3+2]-pos[j*3+2];
-        const d=Math.sqrt(dx*dx+dy*dy+dz*dz);
-        if(d<28){
-          linePositions.push(pos[i*3],pos[i*3+1],pos[i*3+2]);
-          linePositions.push(pos[j*3],pos[j*3+1],pos[j*3+2]);
-        }
-      }
-    }
-    const lg = new THREE.BufferGeometry();
-    lg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions),3));
-    linesMesh = new THREE.LineSegments(lg, lineMat);
-    scene.add(linesMesh);
-  }
-
-  let frame = 0;
-  function animate(){
-    requestAnimationFrame(animate);
-    frame++;
-    const pos = geo.attributes.position.array;
-    for(let i=0;i<N;i++){
-      pos[i*3]   += velocities[i].x;
-      pos[i*3+1] += velocities[i].y;
-      pos[i*3+2] += velocities[i].z;
-      if(Math.abs(pos[i*3])>80)   velocities[i].x*=-1;
-      if(Math.abs(pos[i*3+1])>50) velocities[i].y*=-1;
-      if(Math.abs(pos[i*3+2])>30) velocities[i].z*=-1;
-    }
-    geo.attributes.position.needsUpdate=true;
-    if(frame%3===0) buildLines();
-    points.rotation.y += 0.0005;
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize',()=>{
-    camera.aspect=window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth,window.innerHeight);
-  });
-})();
-</script>
-
-<script>
-(function(){
-  const wrap  = document.querySelector('.projects-scroll-wrap');
-  const track = document.getElementById('projTrack');
-  const btnL  = document.getElementById('btnLeft');
-  const btnR  = document.getElementById('btnRight');
-  const step  = 340;
-
-  btnR.addEventListener('click',()=>{ wrap.scrollBy({left:step,behavior:'smooth'}); });
-  btnL.addEventListener('click',()=>{ wrap.scrollBy({left:-step,behavior:'smooth'}); });
-
-  let isDown=false, startX, scrollLeft;
-  track.addEventListener('mousedown',e=>{isDown=true;track.classList.add('dragging');startX=e.pageX-track.offsetLeft;scrollLeft=wrap.scrollLeft;});
-  track.addEventListener('mouseleave',()=>{isDown=false;track.classList.remove('dragging');});
-  track.addEventListener('mouseup',()=>{isDown=false;track.classList.remove('dragging');});
-  track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-track.offsetLeft;const walk=(x-startX)*1.5;wrap.scrollLeft=scrollLeft-walk;});
-  
-  let touchStart=0;
-  track.addEventListener('touchstart',e=>{touchStart=e.touches[0].clientX;scrollLeft=wrap.scrollLeft;},{passive:true});
-  track.addEventListener('touchmove',e=>{const diff=touchStart-e.touches[0].clientX;wrap.scrollLeft=scrollLeft+diff;},{passive:true});
-})();
-</script>
-
-<script>
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
 
 </body>
 </html>
-
-```
