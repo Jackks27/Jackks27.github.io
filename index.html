@@ -7,16 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Paleta Neutra de Ingeniería Absoluta */
-  --bg:        #0a0a0a; /* Negro puro para el fondo principal */
-  --bg2:       #111112; /* Antracita para secciones secundarias */
-  --bg3:       #18181a; /* Gris oscuro para tarjetas */
-  --cream:     #ffffff; /* Blanco puro para máxima legibilidad */
-  --cream2:    #e4e4e7; /* Blanco grisáceo para textos secundarios */
-  --moss:      #a1a1aa; /* Gris medio para etiquetas e hilos conductores */
-  --moss2:     #27272a; /* Gris oscuro para elementos interactivos discretos */
-  --warm:      #d4d4d8; /* Gris claro para destacar textos clave */
-  --muted:     #71717a; /* Gris apagado para descripciones detalladas */
+  /* Paleta Neutra Estricta (Tonos de negro y blanco) */
+  --bg:        #0a0a0a; /* Negro absoluto */
+  --bg2:       #121212; /* Negro grisáceo */
+  --bg3:       #1a1a1c; /* Antracita */
+  --cream:     #ffffff; /* Blanco puro */
+  --cream2:    #f4f4f5; /* Blanco nieve */
+  --warm:      #e4e4e7; /* Gris muy claro */
+  --muted:     #a1a1aa; /* Gris medio */
+  --moss:      #71717a; /* Gris oscuro */
+  --moss2:     #27272a; /* Gris línea */
   --border:    rgba(255,255,255,0.06);
   --border2:   rgba(255,255,255,0.12);
 }
@@ -27,7 +27,7 @@ body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;ov
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 3rem;background:rgba(10,10,10,0.8);backdrop-filter:blur(8px);}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid var(--border);}
 .nav-logo{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--cream);letter-spacing:0.5px;}
-.nav-logo span{color:var(--warm);}
+.nav-logo span{color:var(--muted);}
 .nav-links{display:flex;gap:2.5rem;list-style:none;}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;letter-spacing:0.5px;transition:color 0.2s;}
 .nav-links a:hover{color:var(--cream);}
@@ -36,22 +36,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 3rem;background:rg
 
 /* ─── HERO ─── */
 .hero{height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
-#hero-canvas{position:absolute;inset:0;z-index:0;opacity:0.6;}
-.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.8) 70%);z-index:1;}
+#hero-canvas{position:absolute;inset:0;z-index:0;opacity:0.4;}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.8) 70%);z-index:1;}
 .hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 3rem;padding-top:64px;}
-.hero-eyebrow{font-size:0.78rem;letter-spacing:3px;color:var(--warm);text-transform:uppercase;margin-bottom:1.8rem;opacity:0;animation:up 0.7s 0.3s forwards;}
+.hero-eyebrow{font-size:0.78rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:1.8rem;opacity:0;animation:up 0.7s 0.3s forwards;}
 .hero-title{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1.05;font-weight:400;margin-bottom:1.8rem;max-width:750px;opacity:0;animation:up 0.7s 0.5s forwards;}
-.hero-title em{color:var(--cream2);font-style:italic;}
+.hero-title em{color:var(--warm);font-style:italic;}
 .hero-sub{color:var(--muted);font-size:1.05rem;line-height:1.75;max-width:480px;margin-bottom:2.5rem;font-weight:300;opacity:0;animation:up 0.7s 0.7s forwards;}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:up 0.7s 0.9s forwards;}
 .btn{display:inline-block;padding:0.75rem 1.8rem;font-size:0.85rem;font-weight:500;text-decoration:none;border-radius:3px;letter-spacing:0.3px;transition:all 0.22s;}
-.btn-dark{background:var(--cream);color:var(--bg);} .btn-dark:hover{background:var(--cream2);}
+.btn-dark{background:var(--cream);color:var(--bg);} .btn-dark:hover{background:var(--warm);}
 .btn-ghost{border:1px solid var(--border2);color:var(--cream2);} .btn-ghost:hover{border-color:var(--cream);color:var(--cream);}
 .hero-scroll{position:absolute;bottom:2.5rem;left:3rem;z-index:2;display:flex;align-items:center;gap:0.8rem;color:var(--muted);font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;opacity:0;animation:up 0.7s 1.2s forwards;}
 .scroll-line{width:40px;height:1px;background:var(--muted);}
 @keyframes up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
 
-/* ─── ROBOT FLOAT (Optimizado industrial) ─── */
+/* ─── ROBOT FLOAT (Neutro/AGV) ─── */
 .hero-robot{position:absolute;right:6%;top:50%;transform:translateY(-50%);z-index:2;opacity:0;animation:up 1s 0.8s forwards;}
 .robot-svg-wrap{animation:robotFloat 4s ease-in-out infinite;}
 @keyframes robotFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
@@ -70,14 +70,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 3rem;background:rg
 .r-light{animation:lightPulse 2s ease-in-out infinite;}
 @keyframes lightPulse{0%,100%{opacity:0.35;}50%{opacity:1;}}
 .r-scan{animation:scanDown 3s linear infinite;}
-@keyframes scanDown{0%{transform:translateY(0);opacity:0.8;}100%{transform:translateY(72px);opacity:0;}}
+@keyframes scanDown{0%{transform:translateY(0);opacity:0.6;}100%{transform:translateY(72px);opacity:0;}}
 
 /* ─── SECTIONS COMMON ─── */
 section{padding:7rem 3rem;}
 .container{max-width:1200px;margin:0 auto;}
-.s-label{font-size:0.72rem;letter-spacing:3px;color:var(--warm);text-transform:uppercase;margin-bottom:1rem;}
+.s-label{font-size:0.72rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:1rem;}
 .s-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;margin-bottom:3.5rem;}
-.s-title em{color:var(--cream2);font-style:italic;}
+.s-title em{color:var(--warm);font-style:italic;}
 .divider{height:1px;background:var(--border);margin:0 3rem;}
 
 /* ─── ABOUT ─── */
@@ -88,11 +88,21 @@ section{padding:7rem 3rem;}
 .about-body strong{color:var(--cream);font-weight:500;}
 .about-right{display:flex;flex-direction:column;gap:1.5rem;}
 .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.stat{padding:1.5rem;border:1px solid var(--border);border-radius:4px;}
+.stat{padding:1.5rem;border:1px solid var(--border);border-radius:4px;background:var(--bg3);}
 .stat-n{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--cream);display:block;line-height:1;}
 .stat-l{color:var(--muted);font-size:0.78rem;margin-top:0.4rem;letter-spacing:0.5px;}
-.img-placeholder{height:220px;border-radius:4px;overflow:hidden;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;}
-.img-placeholder img{width:100%;height:100%;object-fit:cover;opacity:0.4;}
+.img-placeholder{height:220px;border-radius:4px;overflow:hidden;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;}
+
+/* Gráfico técnico LiDAR / AGV para los placeholders */
+.agv-grid-spec {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  display: flex; align-items: center; justify-content: center;
+}
+.agv-circle {
+  width: 100px; height: 100px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 50%;
+}
 
 /* ─── EXPERIENCE ─── */
 .exp-list{display:flex;flex-direction:column;gap:0;}
@@ -102,114 +112,55 @@ section{padding:7rem 3rem;}
 .exp-meta strong{color:var(--cream2);font-weight:500;display:block;margin-bottom:0.3rem;font-size:0.9rem;}
 .exp-meta .exp-role{color:var(--warm);font-size:0.78rem;letter-spacing:0.5px;margin-bottom:0.6rem;}
 .exp-body{color:var(--muted);font-weight:300;line-height:1.85;font-size:0.95rem;}
-.exp-body ul{list-style:none;margin-top:0.8rem;display:flex;flex-direction:column;gap:0.45rem;}
-.exp-body li::before{content:'—  ';color:var(--muted);}
-.exp-body li{font-size:0.9rem;}
 
 /* ─── PROJECTS ─── */
 .projects-section{background:var(--bg2);}
-.projects-scroll-wrap{overflow:hidden;position:relative;}
-.projects-track{display:flex;gap:1.5rem;cursor:grab;user-select:none;padding-bottom:1rem;}
-.projects-track.dragging{cursor:grabbing;}
-.proj-card{flex:0 0 320px;border:1px solid var(--border);border-radius:6px;background:var(--bg3);overflow:hidden;transition:border-color 0.25s;position:relative;}
+.projects-scroll-wrap{overflow:x:auto;position:relative;scrollbar-width:none;}
+.projects-scroll-wrap::-webkit-scrollbar{display:none;}
+.projects-track{display:flex;gap:1.5rem;padding-bottom:1rem;}
+.proj-card{flex:0 0 320px;border:1px solid var(--border);border-radius:6px;background:var(--bg3);overflow:hidden;transition:border-color 0.25s;}
 .proj-card:hover{border-color:var(--border2);}
 .proj-img{height:180px;background:var(--bg);overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;}
-.proj-img img{width:100%;height:100%;object-fit:cover;opacity:0.4;transition:opacity 0.25s;}
-.proj-card:hover .proj-img img{opacity:0.7;}
 .proj-body{padding:1.4rem 1.5rem 1.6rem;}
 .proj-tag{font-size:0.7rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:0.5rem;}
 .proj-name{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;margin-bottom:0.6rem;color:var(--cream);}
 .proj-desc{color:var(--muted);font-size:0.85rem;line-height:1.7;font-weight:300;}
 .proj-techs{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem;}
 .tech-pill{font-size:0.72rem;padding:0.25rem 0.65rem;border:1px solid var(--border2);border-radius:2px;color:var(--cream2);letter-spacing:0.3px;}
-.proj-link{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;font-size:0.8rem;color:var(--cream2);text-decoration:none;transition:color 0.2s;}
-.proj-link:hover{color:var(--warm);}
 .scroll-hint{display:flex;align-items:center;gap:0.8rem;color:var(--muted);font-size:0.78rem;margin-bottom:1.5rem;letter-spacing:1px;}
-.scroll-arrow{font-size:1.1rem;animation:nudge 1.8s ease-in-out infinite;}
-@keyframes nudge{0%,100%{transform:translateX(0);}50%{transform:translateX(6px);}}
-.scroll-btns{display:flex;gap:0.75rem;margin-top:1.5rem;}
-.scroll-btn{width:40px;height:40px;border:1px solid var(--border2);border-radius:50%;background:none;color:var(--cream2);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
-.scroll-btn:hover{border-color:var(--cream);color:var(--cream);}
-
-/* ─── INTERFACES ANALÍTICAS EN TARJETAS (Estilo LiDAR/Radar para AGVs) ─── */
-.radar-overlay {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 15px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.radar-ring {
-  width: 80px; height: 80px;
-  border: 1px dashed rgba(255,255,255,0.1);
-  border-radius: 50%;
-  position: relative;
-}
-.radar-ring::after {
-  content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
-  border-radius: 50%; border-left: 2px solid rgba(255,255,255,0.2);
-  animation: spin 3s linear infinite;
-}
 
 /* ─── SKILLS ─── */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
 .skill-block{padding:2rem;background:var(--bg2);border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
 .skill-block:last-child{border-right:none;}
-.skill-b-title{font-size:0.7rem;letter-spacing:2.5px;color:var(--warm);text-transform:uppercase;margin-bottom:1.2rem;}
+.skill-b-title{font-size:0.7rem;letter-spacing:2.5px;color:var(--muted);text-transform:uppercase;margin-bottom:1.2rem;}
 .skill-pills{display:flex;flex-wrap:wrap;gap:0.5rem;}
 .s-pill{font-size:0.8rem;padding:0.3rem 0.75rem;border:1px solid var(--border);border-radius:2px;color:var(--cream2);transition:all 0.18s;}
 .s-pill:hover{border-color:var(--cream);color:var(--cream);}
 
-/* ─── CERTS ─── */
-.certs-section{background:var(--bg2);}
-.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.cert-card{padding:2rem;border:1px solid var(--border);border-radius:4px;position:relative;overflow:hidden;transition:border-color 0.2s;}
-.cert-card::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--muted);}
-.cert-card:hover{border-color:var(--border2);}
-.cert-source{font-size:0.7rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;}
-.cert-name{font-family:'DM Serif Display',serif;font-size:1.05rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;line-height:1.3;}
-.cert-date{font-size:0.78rem;color:var(--muted);}
-.cert-score{display:inline-block;margin-top:0.8rem;font-size:0.75rem;padding:0.2rem 0.6\rem;border:1px solid rgba(255,255,255,0.2);border-radius:2px;color:var(--cream2);}
-
 /* ─── CONTACT ─── */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
 .contact-big{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.15;margin-bottom:1.5rem;}
-.contact-big em{color:var(--cream2);font-style:italic;}
+.contact-big em{color:var(--warm);font-style:italic;}
 .contact-desc{color:var(--muted);font-weight:300;line-height:1.8;margin-bottom:2rem;}
 .contact-links{display:flex;flex-direction:column;gap:1.2rem;}
-.c-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--cream2);font-size:0.9rem;transition:color 0.2s;}
-.c-link:hover{color:var(--cream);}
-.c-link-icon{width:38px;height:38px;border:1px solid var(--border2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--warm);letter-spacing:1px;flex-shrink:0;transition:border-color 0.2s;}
-.c-link:hover .c-link-icon{border-color:var(--cream);}
+.c-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--cream2);font-size:0.9rem;}
+.c-link-icon{width:38px;height:38px;border:1px solid var(--border2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--muted);letter-spacing:1px;flex-shrink:0;}
 .contact-right{padding:2.5rem;border:1px solid var(--border);border-radius:4px;background:var(--bg2);}
 .contact-note-title{font-family:'DM Serif Display',serif;font-size:1.4rem;margin-bottom:1rem;font-weight:400;}
 .contact-note-body{color:var(--muted);font-weight:300;line-height:1.8;font-size:0.92rem;}
-.contact-note-body strong{color:var(--cream2);font-weight:500;}
 
 /* ─── FOOTER ─── */
 footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
 .footer-name{font-family:'DM Serif Display',serif;font-size:0.9rem;color:var(--muted);}
-.footer-links{display:flex;gap:2rem;}
-.footer-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.5px;transition:color 0.2s;}
-.footer-links a:hover{color:var(--cream);}
 
-/* ─── REVEAL ─── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease, transform 0.8s ease;}
-.reveal.visible{opacity:1;transform:none;}
-
-/* ─── RESPONSIVE ─── */
 @media(max-width:900px){
   nav{padding:0 1.5rem;}
-  .hero-content,.section,.container{padding-left:1.5rem;padding-right:1.5rem;}
   section{padding:5rem 1.5rem;}
   .about-grid,.contact-grid{grid-template-columns:1fr;}
   .exp-item{grid-template-columns:1fr;}
-  .certs-grid{grid-template-columns:1fr;}
   .hero-robot{display:none;}
-  footer{flex-direction:column;gap:1rem;text-align:center;}
-  .divider{margin:0 1.5rem;}
+  footer{flex-direction:column;gap:1rem;}
 }
 </style>
 </head>
@@ -236,61 +187,48 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
     <div class="robot-svg-wrap">
       <svg width="220" height="290" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
         <g class="r-antenna">
           <line x1="100" y1="20" x2="100" y2="40" stroke="#71717a" stroke-width="1.5"/>
-          <circle cx="100" cy="16" r="5" fill="#a1a1aa" filter="url(#glow)"/>
+          <circle cx="100" cy="16" r="5" fill="#a1a1aa"/>
         </g>
-        <rect x="55" y="40" width="90" height="76" rx="10" fill="#111112" stroke="#71717a" stroke-width="1"/>
-        <g class="r-eye">
-          <rect x="65" y="54" width="24" height="18" rx="4" fill="#18181a" stroke="#71717a" stroke-width="1"/>
-          <rect x="72" y="59" width="10" height="8" rx="1" fill="#ffffff" filter="url(#glow)"/>
-        </g>
-        <g class="r-eye">
-          <rect x="111" y="54" width="24" height="18" rx="4" fill="#18181a" stroke="#71717a" stroke-width="1"/>
-          <rect x="118" y="59" width="10" height="8" rx="1" fill="#ffffff" filter="url(#glow)"/>
-        </g>
-        <rect x="42" y="130" width="116" height="96" rx="10" fill="#111112" stroke="#71717a" stroke-width="1"/>
-        <rect x="44" y="132" width="112" height="1" fill="#ffffff" opacity="0.6" class="r-scan"/>
-        <circle cx="100" cy="175" r="12" fill="none" stroke="#71717a" stroke-width="1" stroke-dasharray="4"/>
-        <circle cx="100" cy="175" r="6" fill="#ffffff" class="r-light"/>
+        <rect x="55" y="40" width="90" height="76" rx="10" fill="#121212" stroke="#27272a" stroke-width="1"/>
+        <line x1="55" y1="72" x2="145" y2="72" stroke="#27272a" stroke-width="0.5"/>
+        <g class="r-eye"><rect x="65" y="54" width="24" height="18" rx="4" fill="#1a1a1c" stroke="#27272a"/><circle cx="77" cy="63" r="4" fill="#ffffff"/></g>
+        <g class="r-eye"><rect x="111" y="54" width="24" height="18" rx="4" fill="#1a1a1c" stroke="#27272a"/><circle cx="123" cy="63" r="4" fill="#ffffff"/></g>
+        <rect x="42" y="130" width="116" height="96" rx="10" fill="#121212" stroke="#27272a" stroke-width="1"/>
+        <rect x="44" y="135" width="112" height="1" fill="#ffffff" class="r-scan"/>
+        <g style="transform:translate(28px,158px)"><g class="r-gear"><circle cx="0" cy="0" r="14" fill="none" stroke="#71717a" stroke-width="1.2"/></g></g>
+        <g style="transform:translate(172px,158px)"><g class="r-gear-rev"><circle cx="0" cy="0" r="14" fill="none" stroke="#71717a" stroke-width="1.2"/></g></g>
       </svg>
     </div>
   </div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">Robotics & Automation Engineer</div>
-    <h1 class="hero-title">Ingeniería orientada a <em>sistemas autónomos</em> vehiculares e intralogística.</h1>
-    <p class="hero-sub">Especializado en el diseño, control y simulación de flotas robóticas móviles y manipulación avanzada.</p>
+    <div class="hero-eyebrow">Robotics Engineer</div>
+    <h1 class="hero-title">Francisco Javier Aguayo</h1>
+    <p class="hero-sub">Ingeniería orientada al desarrollo de sistemas robóticos autónomos y automatización industrial.</p>
     <div class="hero-actions">
-      <a href="#projects" class="btn btn-dark">Ver Proyectos</a>
-      <a href="#contact" class="btn btn-ghost">Contacto técnico</a>
+      <a href="#projects" class="btn btn-dark">Proyectos</a>
+      <a href="#contact" class="btn btn-ghost">Contacto</a>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section id="about" class="about-section reveal">
+<section id="about" class="about-section">
   <div class="container">
-    <span class="s-label">01 / Perfil</span>
-    <h2 class="s-title">Desarrollo de robótica de precisión e <em>integración industrial</em>.</h2>
+    <span class="s-label">About</span>
+    <h2 class="s-title">Perfil Profesional</h2>
     <div class="about-grid">
       <div class="about-body">
-        <p>Centrado en la optimización de procesos mediante vehículos autónomos guiados (<strong>AGV / AMR</strong>), sistemas de visión computacional aplicados y simulación de gemelos digitales para entornos industriales masivos.</p>
-        <p>Sólida experiencia estructurando arquitecturas robustas combinando hardware de control en tiempo real con frameworks modernos de navegación autónoma.</p>
+        <p>Ingeniero enfocado en el diseño, control y simulación de entornos e instrumentación robótica, con especial interés en vehículos guiados autónomos y visión artificial aplicada.</p>
       </div>
       <div class="about-right">
-        <div class="stat-row">
-          <div class="stat"><span class="stat-n">ROS</span><span class="stat-l">Sistemas Distribuidos</span></div>
-          <div class="stat"><span class="stat-n">YOLO</span><span class="stat-l">Visión Computacional</span></div>
-        </div>
         <div class="img-placeholder">
-          <svg width="100%" height="100%" style="background:#18181a; opacity: 0.15;">
-            <line x1="0" y1="110" x2="600" y2="110" stroke="#fff" stroke-width="0.5"/>
-            <circle cx="200" cy="110" r="40" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="4"/>
-          </svg>
+          <div class="agv-grid-spec"><div class="agv-circle"></div></div>
         </div>
       </div>
     </div>
@@ -299,19 +237,18 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 
 <div class="divider"></div>
 
-<section id="experience" class="reveal">
+<section id="experience">
   <div class="container">
-    <span class="s-label">02 / Trayectoria</span>
-    <h2 class="s-title">Experiencia e <em>Investigación</em>.</h2>
+    <span class="s-label">Involucración</span>
+    <h2 class="s-title">Ingeniería de Sistemas</h2>
     <div class="exp-list">
       <div class="exp-item">
         <div class="exp-meta">
-          <strong>Ingeniería de Control</strong>
-          <div class="exp-role">Especialista en Automatización</div>
-          <span>2024 — Presente</span>
+          <strong>Áreas de Enfoque</strong>
+          <div class="exp-role">Especialización</div>
         </div>
         <div class="exp-body">
-          <p>Desarrollo y testeo de algoritmos de navegación cinemática y evasión de obstáculos para vehículos autónomos e integración con PLCs industriales en arquitecturas cerradas.</p>
+          <p>Desarrollo de software y control cinemático para robots, integración de sensórica avanzada y diseño de flujos automatizados de precisión.</p>
         </div>
       </div>
     </div>
@@ -320,80 +257,59 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 
 <div class="divider"></div>
 
-<section id="projects" class="projects-section reveal">
+<section id="projects" class="projects-section">
   <div class="container">
-    <span class="s-label">03 / Portafolio</span>
-    <h2 class="s-title">Sistemas y <em>Desarrollos</em> Autónomos.</h2>
+    <span class="s-label">Portfolio</span>
+    <h2 class="s-title">Proyectos Técnicos</h2>
     
     <div class="scroll-hint">
-      <span>Desliza para explorar proyectos</span>
-      <span class="scroll-arrow">→</span>
+      <span>Proyectos</span>
     </div>
 
     <div class="projects-scroll-wrap">
-      <div class="projects-track" id="projectTrack">
+      <div class="projects-track">
         
         <div class="proj-card">
           <div class="proj-img">
-            <div class="radar-overlay"><div class="radar-ring"></div></div>
+            <div class="agv-grid-spec"><div class="agv-circle" style="width:60px;height:60px;"></div></div>
           </div>
           <div class="proj-body">
-            <div class="proj-tag">Visión Artificial</div>
-            <h3 class="proj-name">Custom Object Detection</h3>
-            <p class="proj-desc">Pipeline de visión artificial basado en YOLOv8 para la detección y clasificación precisa de elementos mecánicos en entornos de manufactura automatizada.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">YOLOv8</span>
-              <span class="tech-pill">OpenCV</span>
-            </div>
+            <div class="proj-tag">Computer Vision</div>
+            <h3 class="proj-name">Custom object detection with yolov26</h3>
+            <p class="proj-desc">Desarrollo enfocado en la detección de objetos personalizada utilizando arquitecturas avanzadas de YOLO.</p>
           </div>
         </div>
 
         <div class="proj-card">
           <div class="proj-img">
-            <div class="radar-overlay"><div class="radar-ring" style="border-radius:0;"></div></div>
+            <div class="agv-grid-spec"><div class="agv-circle" style="border-radius:0px;width:60px;height:60px;"></div></div>
           </div>
           <div class="proj-body">
-            <div class="proj-tag">TFG / Célula Robotizada</div>
-            <h3 class="proj-name">Empaquetado de Huevos (SCARA)</h3>
-            <p class="proj-desc">Automatización integral de empaquetado alimentario de alta velocidad mediante cinemática de robot SCARA, coordinado con Ace Omron y simulado en Factory.io.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">Ace Omron</span>
-              <span class="tech-pill">Factory.io</span>
-              <span class="tech-pill">PLC</span>
-            </div>
+            <div class="proj-tag">Sistemas SCARA / PLC</div>
+            <h3 class="proj-name">TFG de empaquetado de huevos mediante un robot scara, factory.io y Ace omrom</h3>
+            <p class="proj-desc">Proyecto de fin de grado integrando simulación física, control industrial Omron y manipulación de trayectorias robóticas.</p>
           </div>
         </div>
 
         <div class="proj-card">
           <div class="proj-img">
-            <div class="radar-overlay" style="transform: scale(0.8);"><div class="radar-ring"></div></div>
+            <div class="agv-grid-spec"><line x1="0" y1="90" x2="320" y2="90" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></div>
           </div>
           <div class="proj-body">
-            <div class="proj-tag">Robótica de Defensa</div>
-            <h3 class="proj-name">Rescue Robot</h3>
-            <p class="proj-desc">Diseño mecatrónico y conceptual de un vehículo terrestre robusto equipado para infiltraciones militares y tareas críticas de rescate autónomo.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">AGV / AMR</span>
-              <span class="tech-pill">Sensórica</span>
-              <span class="tech-pill">Embedded</span>
-            </div>
+            <div class="proj-tag">Robótica Móvil</div>
+            <h3 class="proj-name">Rescue Robot for military infiltrations</h3>
+            <p class="proj-desc">Diseño de plataforma robótica orientada a entornos hostiles y misiones críticas de búsqueda y rescate.</p>
           </div>
         </div>
 
         <div class="proj-card">
           <div class="proj-img">
-            <div class="radar-overlay"><div class="radar-ring" style="transform: rotate(45deg);"></div></div>
+            <div class="agv-grid-spec"><div class="agv-circle" style="transform:scale(0.5);"></div></div>
           </div>
           <div class="proj-body">
             <div class="proj-tag">Navegación Autónoma</div>
-            <h3 class="proj-name">Autonomous Robot</h3>
-            <p class="proj-desc">Programación nativa de lógicas de tracking, mapeo y SLAM para un agente móvil vehicular utilizando el ecosistema distribuido de ROS.</p>
-            <div class="proj-techs">
-              <span class="tech-pill">ROS</span>
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">SLAM</span>
-            </div>
+            <h3 class="proj-name">Autonomous Robot with Python and ROS</h3>
+            <p class="proj-desc">Implementación de arquitecturas distribuidas y nodos de control para guiado autónomo vehicular.</p>
           </div>
         </div>
 
@@ -404,26 +320,18 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 
 <div class="divider"></div>
 
-<section id="skills" class="reveal">
+<section id="skills">
   <div class="container">
-    <span class="s-label">04 / Stack</span>
-    <h2 class="s-title">Core <em>Tecnológico</em>.</h2>
+    <span class="s-label">Tecnologías</span>
+    <h2 class="s-title">Entornos de Trabajo</h2>
     <div class="skills-grid">
       <div class="skill-block">
-        <div class="skill-b-title">Robótica & Simulación</div>
+        <div class="skill-b-title">Sistemas e Integración</div>
         <div class="skill-pills">
-          <span class="s-pill">ROS / ROS2</span>
+          <span class="s-pill">ROS</span>
+          <span class="s-pill">Python</span>
           <span class="s-pill">Ace Omron</span>
           <span class="s-pill">Factory.io</span>
-          <span class="s-pill">Gazebo</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-b-title">Software & AI</div>
-        <div class="skill-pills">
-          <span class="s-pill">Python</span>
-          <span class="s-pill">C++</span>
-          <span class="s-pill">Computer Vision</span>
           <span class="s-pill">YOLO</span>
         </div>
       </div>
@@ -433,27 +341,22 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 
 <div class="divider"></div>
 
-<section id="contact" class="reveal">
+<section id="contact">
   <div class="container">
     <div class="contact-grid">
       <div>
-        <span class="s-label">05 / Conexión</span>
-        <h2 class="contact-big">¿Iniciamos un <em>desarrollo</em>?</h2>
-        <p class="contact-desc">Disponible para colaborar en proyectos complejos de ingeniería de control, guiado autónomo y software embebido.</p>
+        <span class="s-label">Contacto</span>
+        <h2 class="contact-big">Información de <em>Ingeniería</em></h2>
         <div class="contact-links">
-          <a href="mailto:tu-email@dominio.com" class="c-link">
-            <div class="c-link-icon">EM</div>
-            <span>fjavier.aguayo@ejemplo.com</span>
-          </a>
-          <a href="#" class="c-link">
-            <div class="c-link-icon">LN</div>
-            <span>linkedin.com/in/f-javier-aguayo</span>
-          </a>
+          <div class="c-link">
+            <div class="c-link-icon">IN</div>
+            <span>Francisco Javier Aguayo</span>
+          </div>
         </div>
       </div>
       <div class="contact-right">
-        <h3 class="contact-note-title">Especificaciones</h3>
-        <p class="contact-note-body">Todo el software desarrollado sigue estrictos estándares de la arquitectura de sistemas distribuidos y control modular, garantizando la escalabilidad en entornos reales de <strong>robótica AGV</strong>.</p>
+        <h3 class="contact-note-title">Metodología</h3>
+        <p class="contact-note-body">Sistemas y desarrollos enfocados en la robustez y la arquitectura de control industrial modular.</p>
       </div>
     </div>
   </div>
@@ -461,32 +364,18 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify
 
 <footer>
   <div class="footer-name">Francisco Javier Aguayo</div>
-  <div class="footer-links">
-    <a href="#about">Perfil</a>
-    <a href="#projects">Proyectos</a>
-  </div>
 </footer>
 
 <script>
-// Sistema de revelado al hacer scroll (Scroll suave controlado sin tirones)
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-reveals.forEach(r => observer.observe(r));
-
-// Fondo de malla analítica sutil (Sustituto neutro de los efectos gaming previos)
 const canvas = document.getElementById('hero-canvas');
 const ctx = canvas.getContext('2d');
 let w, h;
 function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
 window.addEventListener('resize', resize); resize();
 
-const points = Array.from({length: 40}, () => ({
+const points = Array.from({length: 30}, () => ({
   x: Math.random() * w, y: Math.random() * h,
-  vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3
+  vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2
 }));
 
 function draw() {
@@ -499,20 +388,12 @@ function draw() {
     ctx.beginPath(); ctx.arc(p.x, p.y, 1, 0, Math.PI*2); ctx.fill();
     points.forEach(p2 => {
       let d = Math.hypot(p.x-p2.x, p.y-p2.y);
-      if(d < 150) { ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y); ctx.stroke(); }
+      if(d < 180) { ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y); ctx.stroke(); }
     });
   });
   requestAnimationFrame(draw);
 }
 draw();
-
-// Slider de arrastre nativo fluido para la sección de proyectos
-const track = document.getElementById('projectTrack');
-let isDown = false, startX, scrollLeft;
-track.addEventListener('mousedown', e => { isDown = true; track.classList.add('dragging'); startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
-track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('dragging'); });
-track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('dragging'); });
-track.addEventListener('mousemove', e => { if(!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; const walk = (x - startX) * 1.5; track.scrollLeft = scrollLeft - walk; });
 </script>
 
 </body>
